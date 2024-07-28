@@ -98,19 +98,7 @@
   line-height: 1.4em;
   font-weight: 300;
 }
-.bit3{
-  position: absolute;
-  margin: auto;
-  display: flex;
-  left: auto;
-  width: 100%;
-  height: 100%;
-  background-image: url(bit3.jpg);
-  background-position: center;
-    background-size: cover;
-  animation: animate 60s linear infinite;
 
-}
 @keyframes animate {
   0%{
       background-position: 0px;
@@ -124,8 +112,7 @@
 .me3 {
   width:240px;
   height:240px;
-  top: 100px;
-  left: 40px;
+
   position:relative;
   animation: MoveUpDown3 40s infinite ;
 }
@@ -156,4 +143,32 @@
 
 
   98% {transform: translateY(-950px);}
+}
+
+
+
+
+//center dot for cursor
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0) scale(.03);
+  //border: 5px solid rgb(255, 255, 255);
+  //cursor: url(http://placehold.it/50x30)
+  background-image: url(cursorRet.png);
+  z-index: 99;
+}
+
+.canvas {
+  position: fixed !important;
+  top: 0px;
+  left: 0px;
+  width: 100vw !important;
+  height: 100vh !important;
 }

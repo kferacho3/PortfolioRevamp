@@ -1,0 +1,77 @@
+
+@keyframes AirPlane {
+    0%, 100% {
+        margin-top: -5px;
+    }
+    50% {
+        margin-top: 5px;
+    }
+  }
+
+  @keyframes AirPlane2 {
+    0%, 100% {
+        margin-top: 20px;
+    }
+    50% {
+        margin-top: 30px;
+    }
+  }
+
+  @keyframes pHover {
+    0%, 100% {
+      transform: scale(0.7);
+    }
+    50% {
+      transform: scale(0.8);
+    }
+  }
+
+  @keyframes Chest {
+    0% {
+      transform: translateY(0) scale(0.5);
+      -webkit-transform: translateY(0) scale(0.5);
+      transform: translateX(0) scale(0.5);
+      -webkit-transform: translateX(0) scale(0.5);
+    }
+  
+    50% {
+      transform: translateY(1rem) scale(0.5);
+      -webkit-transform: translateY(1rem) scale(0.5);
+      transform: translateX(0.5rem) scale(0.5);
+      -webkit-transform: translateX(0.5rem) scale(0.5);
+    }
+  
+    100% {
+      transform: translateY(0) scale(0.5);
+      -webkit-transform: translateY(0) scale(0.5);
+      transform: translateX(0) scale(0.5);
+      -webkit-transform: translateX(0) scale(0.5);
+    }
+  }
+  
+  .airplane1 {
+    animation: AirPlane2 2s ease-in-out alternate infinite;
+   
+  }
+
+  .airplane2 {
+    animation: AirPlane 2s ease-in-out alternate infinite;
+  
+  }
+  .airplane3 {
+    animation: AirPlane 3s ease-in-out alternate infinite;
+  
+  }
+  .airplane4 {
+    animation: AirPlane 4s ease-in-out alternate infinite;
+  
+  }
+
+  .airplane5 {
+    animation: AirPlane 5s ease-in-out alternate infinite;
+  
+  }
+
+  .chest {
+    animation: Chest 3s infinite ease-out;
+  }

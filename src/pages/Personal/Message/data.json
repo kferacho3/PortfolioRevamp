@@ -1,0 +1,54 @@
+
+
+
+
+{
+    "leadingText": "School Projects",
+    "slides": [
+      {
+        "introline": "CS 3451 (Graphics)",
+        "id": "/about",
+        "content": {
+          "image": "./introCaro/bottomCar.svg",
+          "bg": "./images/gitb.png",
+          "copy": "Course taken at Georgia Tech that covers "
+        }
+      },
+      {
+        "introline": "CS 2340 - ()xdsxxxx ",
+        "id": "/services",
+        "content": {
+          "image": "./introCaro/bottomBoat.svg",
+          "image2": "./images/gitb.png",
+          "copy": "Simple game application created to replicate the space invaders RPG. Responsible for backend functionality of app."
+        }
+      },
+      {
+        "introline": "MY PROJECTS",
+        "id": "/projects",
+        "content": {
+          "image": "./introCaro/bottomUfo.svg",
+          "image2": "./images/gitb.png",
+          "copy": "Frontend developer and UI Designer for an application designed for 3rd graders. The project consisted of a converting a web browser into an mobile friendly application "
+        }
+      },
+      {
+        "introline": "CONTACT ME!",
+        "id": "/contact",
+        "content": {
+          "image": "./introCaro/bottomCth.svg",
+          "image2": "./images/gitb.png",
+          "copy": "Created a predictive model capable of determining whether a crypto currency will have value in thhe future or will become rugpulled and labeled as a scam. The project uses various supervised and unsupervised learning techniques within model."
+        }
+      },
+      {
+        "introline": "FUN!?",
+        "id": "/fun",
+        "content": {
+          "image": "./introCaro/bottomFun.svg",
+          "image2": "./images/gitb.png",
+          "copy": "Created a predictive model capable of determining whether a crypto currency will have value in thhe future or will become rugpulled and labeled as a scam. The project uses various supervised and unsupervised learning techniques within model."
+        }
+      }
+    ]
+  }

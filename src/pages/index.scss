@@ -1,0 +1,86 @@
+.introBg {
+  z-index: -100000000;
+    background-color: #7f53ac;
+  background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+}
+
+
+.spinner {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -30%);
+
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .spinner span {
+    font-size: 4rem;
+    transform: translateX(30%);
+    animation: fade 1s linear 0s infinite;
+    padding-right: 1rem;
+    align-items: center;
+    text-align: center;
+    color: #000;
+  }
+  
+  .half-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -80%);
+    width: 100px;
+    height: 100px;
+    border-top: 3px solid transparent;
+    border-radius: 250px;
+    animation: linear 0s infinite;
+  }
+  
+  .completed {
+    font-size: 4rem;
+    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -80%);
+    animation: bigger 1s linear;
+    
+  }
+  
+  @keyframes bigger {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(2);
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .spaces {
+    margin-top: 75px;
+  }

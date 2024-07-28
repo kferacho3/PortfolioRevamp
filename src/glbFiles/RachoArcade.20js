@@ -1,0 +1,277 @@
+import { a, useSpring } from '@react-spring/three';
+import { Html, useGLTF } from '@react-three/drei';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
+
+const TextCommonStyle = styled.div`
+  padding: 0px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background for better readability
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); // Adding a text shadow for depth
+  font-weight: bold; // Make text bold
+  text-align: center; // Center align text
+  z-index: 1;
+  //display: none;
+  display: ${({ isOpen2 }) => (isOpen2 ? 'none' : 'initial')};
+`;
+// Define styled components for each button
+const StartGameText = styled(TextCommonStyle)`
+  color: #ffffff; /* White, assuming the screen is neutral or white */
+`;
+const HomeText = styled(TextCommonStyle)`
+  color: #0000ff; /* Blue for the Blue Button */
+`;
+const BackText = styled(TextCommonStyle)`
+  color: #008000; /* Green for the Green Button */
+`;
+const NextText = styled(TextCommonStyle)`
+  color: #ffff00; /* Yellow for the Yellow Button */
+`;
+const MuseumText = styled(TextCommonStyle)`
+  color: #800080; /* Purple for the Purple Button */
+`;
+const MainStartGame = styled(TextCommonStyle)`color: #FF0000;`
+ /* Red for the Green`*/
+export default function Arcade({isOpen2, props, gamesInfo, currentGameIndex, setGameState, sketchTexture, handleNext, handlePrev }) {
+  const group = useRef();
+
+  // Separate spring animations for each interactive group
+  const [screenSpring, setScreenSpring] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 1, tension: 170, friction: 14 },
+  }));
+  const [blueButtonSpring, setBlueButtonSpring] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 1, tension: 170, friction: 14 },
+  }));
+  const [greenButtonSpring, setGreenButtonSpring] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 1, tension: 170, friction: 14 },
+  }));
+  const [yellowButtonSpring, setYellowButtonSpring] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 1, tension: 170, friction: 14 },
+  }));
+  const [mainButtonSpring, setMainButtonSpring] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 1, tension: 170, friction: 14 },
+  }));
+  const [purpleButtonSpring, setPurpleButtonSpring] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 1, tension: 170, friction: 14 },
+  }));
+
+  // Function to trigger jiggling for each group
+  const jiggle = (setSpring) => {
+    setSpring({
+      scale: [1.1, 1.1, 1.1],
+      onRest: () => setSpring({ scale: [1, 1, 1] }),
+    });
+  };
+
+  const startGame = () => {
+    const currentGame = gamesInfo[currentGameIndex];
+    setGameState(currentGame.gameState);
+  };
+  const { nodes, materials } = useGLTF('./glb/rachoArcade.glb');
+
+
+
+
+
+  // Use these values to match the original MAIN_SCREEN mesh's position, rotation, and scale
+  const position = [-8.84, 7.33, 12.25]; // Example values, replace with actual ones
+  const rotation = [1.41, 0, 0]; // Example values, replace with actual ones
+  const scale = [34.94, 1, 48.88]; // Example values, replace with actual ones
+
+  return (
+    <a.group position={[0, -5, 0]} scale={0.05} ref={group} {...props} dispose={null}>
+      <mesh
+        geometry={nodes.ArcadeTopBanner.geometry}
+        material={nodes.ArcadeTopBanner.material}
+        position={[0.62, 146.59, 8.96]}
+      />
+      <mesh
+        geometry={nodes.Part_7214.geometry}
+        material={materials.PaletteMaterial001}
+        position={[0.64, 110.48, -13.61]}
+        rotation={[-0.18, 0, 0]}
+      />
+      <group position={[0.64, 110.48, -13.61]} rotation={[-0.18, 0, 0]}>
+        <mesh geometry={nodes.Body_1.geometry} material={materials.PaletteMaterial002} />
+        <mesh geometry={nodes.Body_2.geometry} material={materials.PaletteMaterial003} />
+      </group>
+      <mesh
+        geometry={nodes.Front_Board_Bottom.geometry}
+        material={nodes.Front_Board_Bottom.material}
+        position={[-8.84, 7.33, 11.13]}
+        rotation={[1.4, 0, 0]}
+        scale={[34.94, 1, 48.88]}
+      />
+      <mesh
+        geometry={nodes.Sweep_NURBS_NEON_0.geometry}
+        material={materials['PaletteMaterial002.001']}
+        position={[32, 0, -0.87]}
+      />
+      <mesh geometry={nodes.Part_5.geometry} material={nodes.Part_5.material} position={[0.62, 146.59, 8.96]} />
+      <mesh
+        geometry={nodes.ExoSkeleton.geometry}
+        material={nodes.ExoSkeleton.material}
+        position={[-8.84, 7.33, 12.39]}
+        rotation={[1.4, 0, 0]}
+        scale={[34.94, 1, 48.88]}
+      />
+      <mesh
+        geometry={nodes.Front_Board.geometry}
+        material={nodes.Front_Board.material}
+        position={[-8.84, 7.33, 11.13]}
+        rotation={[1.4, 0, 0]}
+        scale={[34.94, 1, 48.88]}
+      />
+      {/* Screen group with its own spring animation */}
+      <a.group
+        name="Screen"
+        onPointerOver={() => setScreenSpring({ scale: [1.01, 1.01, 1.01] })}
+        onPointerOut={() => setScreenSpring({ scale: [1, 1, 1] })}
+        onClick={() => {  startGame();jiggle(setScreenSpring); }}
+        scale={screenSpring.scale}
+      >
+     
+     <mesh
+
+      position={position}
+      rotation={rotation}
+      scale={scale}
+    >
+      <planeGeometry args={[1, 1]} />
+      <meshStandardMaterial map={sketchTexture} />
+      <Html scaleFactor={10}>
+        {/* Adjust as needed to display HTML content over the plane */}
+        <div style={{ color: 'white' }}>Start</div>
+      </Html>
+    </mesh>
+      </a.group>
+      {/* Blue Button group with its own spring animation */}
+      <a.group
+        name="Blue Button"
+        onPointerOver={() => setBlueButtonSpring({ scale: [1.01, 1.01, 1.01] })}
+        onPointerOut={() => setBlueButtonSpring({ scale: [1, 1, 1] })}
+        onClick={() => { handleNext(); jiggle(setBlueButtonSpring); }}
+        scale={blueButtonSpring.scale}
+      >
+        <mesh
+          geometry={nodes.Cylinder.geometry}
+          material={materials['Material.004']}
+          position={[-21.57, 80.08, 12.6]}
+          rotation={[0.4, 0.31, -0.03]}
+          scale={[1.14, 1.04, 1.13]}
+        />
+        <Html     position={[-21.57, 80.08, 12.6]} scaleFactor={10}>
+        <HomeText isOpen2={isOpen2}>Home</HomeText>
+        </Html>
+      </a.group>
+      {/* Green Button group with its own spring animation */}
+      <a.group
+        name="Green Button"
+        onPointerOver={() => setGreenButtonSpring({ scale: [1.01, 1.01, 1.01] })}
+        onPointerOut={() => setGreenButtonSpring({ scale: [1, 1, 1] })}
+        onClick={() => { handlePrev(); jiggle(setGreenButtonSpring); }}
+        scale={greenButtonSpring.scale}
+      >
+        <mesh
+          geometry={nodes.Cylinder001.geometry}
+          material={materials['Material.003']}
+          position={[-17.55, 78.84, 15.94]}
+          rotation={[0.4, 0.31, -0.03]}
+          scale={[1.14, 1.04, 1.13]}
+        />
+        <Html       position={[-17.55, 78.84, 15.94]} scaleFactor={10}>
+        <BackText isOpen2={isOpen2}>Back</BackText>
+        </Html>
+      </a.group>
+      {/* Yellow Button group with its own spring animation */}
+      <a.group
+        name="Yellow Button"
+        onPointerOver={() => setYellowButtonSpring({ scale: [1.01, 1.01, 1.01] })}
+        onPointerOut={() => setYellowButtonSpring({ scale: [1, 1, 1] })}
+        onClick={() => { handleNext(); jiggle(setYellowButtonSpring); }}
+        scale={yellowButtonSpring.scale}
+      >
+        <mesh
+          name="Yellow Button"
+          geometry={nodes.Cylinder002.geometry}
+          material={materials['Material.001']}
+          position={[-12.81, 77.73, 18.91]}
+          rotation={[0.4, 0.31, -0.03]}
+          scale={[1.14, 1.04, 1.13]}
+        />
+        <Html  position={[-12.81, 77.73, 18.91]} scaleFactor={10}>
+        <NextText isOpen2={isOpen2}>Back</NextText>
+        </Html>
+      </a.group>
+      {/* Main Button group with its own spring animation */}
+      <a.group
+        name="Main Button"
+        onPointerOver={() => setMainButtonSpring({ scale: [1.01, 1.01, 1.01] })}
+        onPointerOut={() => setMainButtonSpring({ scale: [1, 1, 1] })}
+        onClick={() => {  startGame();jiggle(setMainButtonSpring); }}
+        scale={mainButtonSpring.scale}
+      >
+        <mesh
+          geometry={nodes.Cylinder004.geometry}
+          material={materials['Material.007']}
+          position={[-2.53, 80.49, 13.52]}
+          rotation={[0.39, 0.32, 0]}
+          scale={[3.61, 1.61, 3.78]}
+        />
+        <mesh
+          geometry={nodes.Sphere.geometry}
+          material={materials['Material.006']}
+          position={[-2.39, 80.78, 13.53]}
+          rotation={[0.4, 0, 0]}
+          scale={[4.59, 3.72, 4.72]}
+        />
+                <Html        position={[-2.39, 80.78, 13.53]} scaleFactor={10}>
+        <MainStartGame isOpen2={isOpen2}>START</MainStartGame>
+        </Html>
+      </a.group>
+      {/* Purple Button group with its own spring animation */}
+      <a.group
+        name="PurpleButton"
+        onPointerOver={() => setPurpleButtonSpring({ scale: [1.01, 1.01, 1.01] })}
+        onPointerOut={() => setPurpleButtonSpring({ scale: [1, 1, 1] })}
+        onClick={() => { handleNext(); jiggle(setPurpleButtonSpring); }}
+        scale={purpleButtonSpring.scale}
+      >
+        <mesh
+          name="PurpleButton"
+          geometry={nodes.Sphere001.geometry}
+          material={materials['Material.005']}
+          position={[-23.53, 77.46, 20.85]}
+          rotation={[0.24, 0, 0]}
+          scale={[1.96, 1.73, 1.96]}
+        />
+        <Html        position={[-23.53, 77.46, 20.85]} scaleFactor={10}>
+        <MuseumText isOpen2={isOpen2}>Museum</MuseumText>
+        </Html>
+      </a.group>
+      <group>
+        <mesh
+          geometry={nodes.Icosphere.geometry}
+          material={materials['Material.008']}
+          position={[17.91, 86.59, 12.86]}
+          scale={[3, 1.98, 3]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Cylinder003.geometry}
+        material={materials['Material.002']}
+        position={[-0.77, 50.87, 16.96]}
+        rotation={[1.62, 0.31, -0.03]}
+        scale={[1.48, 1.34, 1.47]}
+      />
+    </a.group>
+  );
+}
+
+useGLTF.preload('./glb/rachoArcade.glb');

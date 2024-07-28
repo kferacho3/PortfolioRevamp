@@ -1,18 +1,56 @@
+import { FaWpexplorer } from 'react-icons/fa';
+import { VscSmiley } from 'react-icons/vsc';
+import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
-import {FaWpexplorer} from 'react-icons/fa'
-import {VscSmiley} from 'react-icons/vsc'
+export const Wrap = styled.div`
+    position: relative;
+
+
+
+`;
+export const CanvasContainer = styled.div`
+    position: absolute;
+   // z-index: 1;
+    height: auto;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: all;
+    overflow: scroll;
+    
+    :before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0, 0, 0, 0, 0.6) 100%), 
+        linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%)
+        
+
+    }
+  
+`;
 
 export const PersonalContainer = styled.div`
-    
+    /*
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center
     padding: 0 30px;
-    height: 160vh;
+    height: 100vh;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: -10000;
     overflow-x: hidden;
+    */
+    height: 100vh;
+    position: relative;
+    padding: 16px;
+    box-sizing: border-box;
     :before {
         content: '';
         position: absolute;
@@ -26,9 +64,10 @@ export const PersonalContainer = styled.div`
         
 
     }
+    /*
     @media screen and (max-width: 850px) {
         height: 260vh;
-    }
+    }*/
 `;
 export const PersonalImg = styled.img`
     
@@ -48,8 +87,7 @@ export const PersonalContainer2 = styled.div`
 `;
 
 export const PersonalBG = styled.div`
-    position: absolute;
-
+    position: absolute; 
     top: 0;
     right: 0;
     right: 0;
@@ -70,7 +108,7 @@ export const VideoBg = styled.img`
 `;
 
 export const PersonalContent = styled.div`
-    z-index: = 3;
+    z-index: 3;
     max-width: 1200px;
     position: absolute;
     padding: 8px 24px;
@@ -164,9 +202,7 @@ export const PersonalP = styled.p`
     text-shadow: 5px 5px #FF0000;
     z-index: 99999;
     text-align: center;
-    text-FaAlignCenter: 
-    
-    o;
+
 
 @media screen and (max-width: 900px) {
     font-size: 35px;
@@ -208,14 +244,14 @@ export const ArrowRight = styled(VscSmiley)`
     font-size: 20px;
 `;
 
-export const Button4 = styled.a`
+export const Button4 = styled(LinkR)`
     margin-top: 125px;
     border-radius: 50px;
     background: ${({primary}) => (primary ? '#FFF444' : '#010606')} ;
     white-space: nowrap;
     padding: ${({big}) => (big ? '14px 48px' : '30px 30px')} ;
     color: #FF0000;
-    font-size = ${({fontBig}) => (fontBig ? '30px' : '16px')} ;
+    font-size: ${({fontBig}) => (fontBig ? '30px' : '16px')} ;
     text-color: #FFF444;
     text-decoration: none;
     outline: none;

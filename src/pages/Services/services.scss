@@ -1,0 +1,271 @@
+
+
+// /* Add to your CSS file or within a <style> tag in your HTML */
+
+
+
+
+// .one {
+
+//   background: url(servicesImg/island1.png);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+// .two {
+//   background: url(servicesImg/island2.gif);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+// .three {
+//   background: url(servicesImg/island3.png);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+// .four {
+//   background: url(servicesImg/island4.png);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+// .five {
+//   background: url(servicesImg/island5.gif);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+// .six {
+//   background: url(servicesImg/island6.png);
+//   background-position: center;
+//   background-size: cover;
+// }
+// .seven {
+//   background: url(servicesImg/island7.png);
+//   background-position: center;
+//   background-size: cover;
+// }
+// .eight {
+//   background: url(servicesImg/island8.png);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+// .nine {
+//   background: url(servicesImg/island9.gif);
+//   background-position: center;
+//   background-size: cover;
+// }
+
+
+// ::-webkit-scrollbar {
+
+//   display: none;
+// }
+
+// .me2 {
+//   width:24px;
+//   height:24px;
+//   position:relative;
+//   animation: MoveUpDown2 2s ease-in-out alternate infinite;
+// }
+
+
+
+
+// .animation1 {
+//   animation: Div1 2s alternate infinite;
+
+// }
+
+// .animation2 {
+//   animation: Div2 3s alternate infinite;
+
+// }
+
+// .animation3 {
+//   animation: Div3 3s alternate infinite;
+
+// }
+
+// .animation4 {
+//   animation: Div4 4s alternate infinite;
+
+// }
+
+// .animation5 {
+//   animation: Div5 3s alternate infinite;
+
+// }
+// .animation6 {
+//   animation: Div6 3s alternate infinite;
+
+// }
+
+
+
+
+// @keyframes MoveUpDown2 {
+//   0%{
+//     transform: translateY(-7.5%);
+//   }
+//   100% {
+//     transform: translateY(3%);
+//   }
+// }
+
+
+
+// @keyframes Div1 {
+//   0%{
+//     transform: translateY(-5%);
+//   }
+//   100% {
+//     transform: translateY(3%);
+//   }
+// }
+
+// @keyframes Div2 {
+//   0%{
+//     transform: translateY(-5%);
+//   }
+//   100% {
+//     transform: translateY(3%);
+//   }
+// }
+
+// @keyframes Div3 {
+//   0%{
+//     transform: translateY(-10%);
+//   }
+//   100% {
+//     transform: translateY(0%);
+//   }
+// }
+
+// @keyframes Div4 {
+//   0%{
+//     transform: translate(-3%, -5%);
+//   }
+//   30% {
+//     transform: translate(2%, -2%);
+//   }
+//   60% {
+//     transform: translate(2%, 2%);
+//   }
+//   100% {
+//     transform: translate(-1%, 5%);
+//   }
+// }
+// @keyframes Div5 {
+//   0%{
+//     transform: translate(3, -3%);
+
+//   }
+//   30% {
+//     transform: translate(5%, -4%);
+//   }
+//   60% {
+//     transform: translate(-4%, 0%);
+//   }
+//   100% {
+//     transform: translateY(10%);
+//   }
+// }
+
+
+// @keyframes Div6 {
+//   0%{
+//     transform: translateY(-5%);
+//   }
+//   100% {
+//     transform: translateY(5%);
+//   }
+// }
+
+
+
+
+
+// .regular-wrapper {
+  
+//   width: 600vw;
+//   height:100vh;
+//   overflow-y: scroll;
+//   overflow-x: hidden;
+//   z-index: -2;
+//   position: relative;
+// }
+// .content {
+//   margin: 0 auto;
+//   padding: 50px;
+//   width: 50%;
+//   background: #aaa;
+// }
+
+// .background {
+//   width:  100vw;
+//   height: 100vh;
+//   z-index: -9999;
+//   //background: linear-gradient(to bottom, #20BF55 0%,#01BAEF 100%);
+
+//   background: linear-gradient(to bottom, #20BF55 0%,#01BAEF 100%);
+//   transform-style: preserve-3d;
+//   perspective: 1px;
+//   //background: linear-gradient(90deg, #4bb9db 0%, #92FE9D 100%);
+  
+// }
+
+
+
+
+
+// .cloudC1 {
+//   width: 600vw;
+//   height: 100vh;
+//   background: url(servicesImg/colorcloud1.png);
+//   animation: animate 160s linear infinite;
+//   z-index: 2;
+// }
+
+// .cloudC2 {
+
+//   background: url(servicesImg/colorcloud2.png);
+//   animation: animate 240s linear infinite;
+//   z-index: 2;
+// }
+
+// .cloudC3 {
+
+//   width: 600vw;
+//   height: 100vh;
+//   background-image: url(servicesImg/bclouds.png);
+//   animation: animate 320s linear infinite;
+
+//   display: flex;
+//   flex-wrap: nowrap;
+//   position: absolute;
+
+  
+// }
+
+// .slow {
+//   width: 600vw;
+//   height: 100vh;
+//   z-index: -1;
+//   position: absolute;
+// }
+// .boat {
+//   left: 1000px;
+// }
+
+
+// @keyframes animate {
+//   0%{
+//     transform: translateX(0px);
+//   }
+//   100%{
+//     transform: translateX(-1500px);
+//   }
+// }

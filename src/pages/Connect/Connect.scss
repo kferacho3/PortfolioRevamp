@@ -1,16 +1,15 @@
 
-.bit5{
+.bit5 {
   position: absolute;
   margin: auto;
   display: flex;
-  left: auto;
-  width: 100%;
+  left: 0; /* Start from the left edge */
+  width: 200%; /* Double the width to create a seamless loop */
   height: 100%;
-  background: url(bitc5.jpg);
-  background-position: center;
-  background-size: cover;
+  background: url(connectImg/bitc5.jpg);
+  background-size: auto 100%; /* Auto width, 100% height */
+  z-index: -9999;
   animation: animate 60s linear infinite;
-
 }
 @keyframes animate {
   0%{
@@ -22,12 +21,6 @@
   
 }
 
-.me2 {
-  width:24px;
-  height:24px;
-  position:relative;
-  animation: MoveUpDown2 2s ease-in-out alternate infinite;
-}
 
 @keyframes MoveUpDown2 {
   0%{
