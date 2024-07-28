@@ -1,6 +1,6 @@
 # PortfolioRevamp
 
-Introduction
+#Introduction
 Welcome to version 2.0 of the Portfolio repository! This project is a sophisticated and dynamic portfolio website built using a combination of powerful tools and libraries. Below is a detailed overview of the architecture and framework of the codebase. The main purpose of this website is to showcase the developer's skillsets acquired over 1.5 years of freelancing.
 
 Table of Contents
