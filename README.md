@@ -76,13 +76,15 @@ root
 
 
 ## Additional Resources
-- React Documentation
-- React Three Fiber Documentation
-- Three.js Documentation
-- Webpack Documentation
-- Babel Documentation
-- Framer Motion Documentation
-- React Spring Documentation
-- Rapier Physics Documentation
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [React Three Fiber Documentation](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- [Three.js Documentation](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
+- [Webpack Documentation](https://webpack.js.org/concepts/)
+- [Babel Documentation](https://babeljs.io/docs/en/)
+- [Framer Motion Documentation](https://www.framer.com/motion/)
+- [React Spring Documentation](https://www.react-spring.io/docs)
+- [Rapier Physics Documentation](https://rapier.rs/docs/user_guides/rust/)
+
+## Project Structure
 
 
