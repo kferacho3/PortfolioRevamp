@@ -75,12 +75,14 @@ root
    cd PortfolioRevamp
 
 
-## Additional Reources
-React Documentation
-React Three Fiber Documentation
-Three.js Documentation
-Webpack Documentation
-Babel Documentation
-Framer Motion Documentation
-React Spring Documentation
-Rapier Physics Documentation
+## Additional Resources
+- React Documentation
+- React Three Fiber Documentation
+- Three.js Documentation
+- Webpack Documentation
+- Babel Documentation
+- Framer Motion Documentation
+- React Spring Documentation
+- Rapier Physics Documentation
+
+
