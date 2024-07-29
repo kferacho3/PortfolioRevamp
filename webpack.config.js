@@ -30,7 +30,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|eot|ttf|woff|woff2|mp4|ico|mp3|glb)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|eot|ttf|woff|woff2|mp4|ico|mp3|glb|pdf)$/, // Add pdf here
         use: [
           {
             loader: 'file-loader',

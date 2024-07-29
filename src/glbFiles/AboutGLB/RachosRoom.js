@@ -4,12 +4,21 @@ Command: npx gltfjsx@6.2.16 RachosRoom.glb for 3D models
 */
 
 import { useAnimations, useGLTF } from '@react-three/drei'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export default function RachosRoom(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('https://racho-devs.s3.us-east-2.amazonaws.com/about/glbDivs/RachosRoom.glb')
   const { actions } = useAnimations(animations, group)
+  useEffect(() => {
+
+  
+
+    Object.keys(actions).forEach((key) => {
+      actions[key].play();
+    });
+  
+  }, [actions]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

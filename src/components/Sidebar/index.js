@@ -24,6 +24,8 @@ import img3 from './SidebarImg/sidebar3.png';
 import img4 from './SidebarImg/sidebar4.png';
 import img5 from './SidebarImg/sidebar5.png';
 import img8 from './SidebarImg/sidebar8.png';
+import resumeFile from '/public/Resume.pdf';
+
 const logo = 'https://racho-devs.s3.us-east-2.amazonaws.com/Images/RachoDevsLogo.png';
 const Sidebar = ({isOpen, toggle}) => {
     const containerVariants = {
@@ -69,7 +71,14 @@ const Sidebar = ({isOpen, toggle}) => {
         window.open("https://linkedin.com/in/kamal-feracho-075a5a1aa");
       };
 
-      
+      const handleResumeDownload = () => {
+        const link = document.createElement('a');
+        link.href = resumeFile;
+        link.setAttribute('download', 'resume.pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
     return (
         <SidebarContainer  isOpen={isOpen}
          initial="hidden"
@@ -112,7 +121,7 @@ const Sidebar = ({isOpen, toggle}) => {
         </ApplicationGrid>
         <SidebarIconContainer>
     <SidebarIconBg style={{ backgroundImage: `url(${iconBg})` }}>
-        <SidebarIcon style={{ backgroundImage: `url(${resume})` }} onClick={handleClick1} target='_blank'/>
+        <SidebarIcon style={{ backgroundImage: `url(${resume})` }} onClick={handleResumeDownload} target='_blank'/>
         <SidebarIconText>Resume</SidebarIconText>
     </SidebarIconBg>
 
