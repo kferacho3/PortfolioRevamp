@@ -25,9 +25,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [
-              isDevelopment && require.resolve('react-refresh/babel')
-            ].filter(Boolean),
+            plugins: isDevelopment ? [require.resolve('react-refresh/babel')] : [],
           },
         },
       },
@@ -51,8 +49,11 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    isDevelopment && new ReactRefreshWebpackPlugin()
+    isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
+  optimization: {
+    sideEffects: true,
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
