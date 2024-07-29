@@ -9,8 +9,9 @@ import Framework from '../../glbFiles/AboutGLB/Framework';
 import Languages from '../../glbFiles/AboutGLB/Languages';
 import RoomTease from '../../glbFiles/AboutGLB/RoomTease';
 import Service from '../../glbFiles/AboutGLB/Service';
-import magicBox from '../../glbModels/aboutMeMagicBox.glb';
+
 import { AboutContainer } from './AboutElements';
+const magicBox = 'https://racho-devs.s3.us-east-2.amazonaws.com/about/glbDivs/aboutMeMagicBox.glb';
 const About3D = ({ currentState, setCurrentState }) => (
   <AboutContainer>
     <Canvas shadows camera={{ position: [-3, 0.5, 3] }}>

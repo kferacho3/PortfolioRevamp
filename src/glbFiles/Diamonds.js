@@ -7,13 +7,13 @@ import BackfaceMaterial from "../glbFiles/diamonds/BackfaceMaterial";
 import RefractionMaterial from "../glbFiles/diamonds/RefractionMaterial";
 import { useBlock } from "../glbFiles/diamonds/blocks";
 import state from "../glbFiles/diamonds/store";
-import diamond from "../glbModels/diamond.glb";
+
 const dummy = new Object3D();
 //const randomInt = Math.floor(Math.random() * 3);
 const randomInt = 1;
 
-const crystal2 = "https://racho-devs.s3.us-east-2.amazonaws.com/intro/HeaderW-svg.png";
-
+const crystal2 = "https://racho-devs.s3.us-east-2.amazonaws.com/myProjects/glbModels/Crystals/crystal2.glb";
+const diamond = "https://racho-devs.s3.us-east-2.amazonaws.com/myProjects/glbModels/Crystals/diamond.glb";
 const crystal1 = "https://racho-devs.s3.us-east-2.amazonaws.com/myProjects/glbModels/Crystals/stylized_crystal.glb";
 
 

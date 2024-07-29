@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { TextureLoader } from 'three';
 
-import ArcadeModel from '../glbModels/rachoArcade.glb';
+const ArcadeModel = 'https://racho-devs.s3.us-east-2.amazonaws.com/fun/glb/rachoArcade.glb';
 const RoundedCornerImage = ({ imageUrl, position, rotation, scale }) => {
   const texture = useLoader(TextureLoader, imageUrl);
   
