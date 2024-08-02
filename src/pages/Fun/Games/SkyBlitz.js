@@ -2,7 +2,6 @@
 import { Physics, useBox, usePlane } from '@react-three/cannon';
 import { Sky, Stars } from '@react-three/drei';
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from "three";
 import { RepeatWrapping, TextureLoader } from 'three';
@@ -323,12 +322,7 @@ const useObstaclePositions = (playerRef) => {
           <Projectile key={index} position={projectile.position} velocity={projectile.velocity} />
         ))}
         </Physics>
-        <EffectComposer>
-          <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} />
-          <Bloom luminanceThreshold={0.6} luminanceSmoothing={0.9} intensity={0.8} />
-          <Noise opacity={0.02} />
-          <Vignette eskil={false} offset={0.1} darkness={1.1} />
-        </EffectComposer>
+
       </Canvas>
       <ScoreDisplay score={score} />
     </>

@@ -52,7 +52,7 @@ export default function Monitor({
   const [down2, setDown2] = useState(false);
   const [hovered2, setHovered2] = useState(false);
   const width = window.innerWidth;
-  const isMobile = width <= 700; // Check if the window width is 600 or less
+  const isMobile = width <= 700; // Check if the window width is 700 or less
   const leftButton = useRef();
   const rightButton = useRef();
   const { nodes, materials, animations } = useGLTF('https://racho-devs.s3.us-east-2.amazonaws.com/myProjects/glbModels/MonitorOg.glb');
@@ -191,6 +191,12 @@ export default function Monitor({
     };
   }, []);
 
+  const goToUrl = () => {
+    if (itemIndex > 0 && itemIndex < websiteUrls.length + 1) {
+      window.open(websiteUrls[itemIndex - 1], '_blank');
+    }
+  };
+
   return (
     <group position={[2, 0, 0]} ref={group} {...props} dispose={null}>
       <PresentationControls
@@ -291,8 +297,7 @@ export default function Monitor({
               <mesh geometry={nodes.Monitor_10.geometry} material={materials['Material.015']} />
               <mesh geometry={nodes.Monitor_11.geometry} material={materials['Material.016']} />
               <mesh geometry={nodes.Monitor_12.geometry} material={materials['Material.017']} />
-              <mesh geometry={nodes.Monitor_13.geometry}>
-
+              <mesh geometry={nodes.Monitor_13.geometry} onClick={index === 1 ? goToUrl : null}>
                 {index === 3 && videoTexture && (
                   <meshBasicMaterial attach="material" map={videoTexture} />
                 )}

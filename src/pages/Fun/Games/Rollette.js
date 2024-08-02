@@ -1,7 +1,7 @@
 import { Physics, useBox, useCylinder, usePlane, useSphere, } from '@react-three/cannon';
 import { Box, Cone, Dodecahedron, Polyhedron, Ring, RoundedBox, Sky, Sphere, Stars, Tetrahedron, Torus, TorusKnot, useProgress } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { EffectComposer, N8AO, TiltShift2 } from "@react-three/postprocessing";
+import { EffectComposer } from "@react-three/postprocessing";
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import * as THREE from "three";
 import { HUDContainer, HealthDisplay, ScoreDisplay } from '../FunElements';
@@ -1131,8 +1131,7 @@ const handleCollisionWithEffect = (effectType, objectColor) => {
           </Physics>
           </Suspense>
           <EffectComposer disableNormalPass>
-        <N8AO aoRadius={0.5} intensity={2} />
-        <TiltShift2 blur={0.2} />
+
 
       </EffectComposer>
         </Canvas>
