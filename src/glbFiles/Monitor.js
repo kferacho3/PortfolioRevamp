@@ -3,6 +3,7 @@ import { a } from "@react-spring/three";
 import { PresentationControls, useAnimations, useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import { MeshBasicMaterial } from 'three';
 
@@ -57,6 +58,8 @@ export default function Monitor({
   const rightButton = useRef();
   const { nodes, materials, animations } = useGLTF('https://racho-devs.s3.us-east-2.amazonaws.com/myProjects/glbModels/MonitorOg.glb');
   const { actions } = useAnimations(animations, group, perfSucks);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [isPlaying, setIsPlaying] = useState(true);
   const { gl } = useThree();
@@ -72,7 +75,7 @@ export default function Monitor({
         video.src = url;
         video.crossOrigin = 'anonymous';
         video.loop = true;
-        video.muted = true;
+        video.muted = false;
         video.load();
         videoElements.current[index] = video;
 
@@ -80,7 +83,13 @@ export default function Monitor({
         texture.minFilter = THREE.LinearFilter;
         texture.magFilter = THREE.LinearFilter;
         texture.format = THREE.RGBAFormat;
+        texture.wrapS = THREE.ClampToEdgeWrapping; // Ensure the wrapping is correct
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+
         videoTextures.current[index] = texture;
+        const material = new THREE.MeshBasicMaterial({ map: videoTextures.current[index] });
+        material.map.wrapS = THREE.RepeatWrapping;
+        material.map.repeat.x = -1; // Flip the texture horizontally
 
         video.addEventListener('error', () => {
           console.error(`Error loading video: ${url}`);
@@ -109,12 +118,34 @@ export default function Monitor({
       });
 
       const video = videoElements.current[index];
-      if (video.paused) {
-        video.play().catch(console.error);
-      }
       setVideoTexture(videoTextures.current[index]);
+      video.play().catch(console.error);
     }
   };
+
+  const handleVideoClick = () => {
+    const video = videoElements.current[itemIndex];
+    if (video) {
+      if (video.paused) {
+        video.play().catch(console.error);
+      } else {
+        video.pause();
+      }
+    }
+  };
+
+  // Pause video on route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      if (videoElements.current[itemIndex]) {
+        videoElements.current[itemIndex].pause();
+      }
+    };
+
+    return () => {
+      handleRouteChange();
+    };
+  }, [location, itemIndex]);
 
   useEffect(() => {
     document.body.style.cursor = hovered || hovered2
@@ -297,7 +328,7 @@ export default function Monitor({
               <mesh geometry={nodes.Monitor_10.geometry} material={materials['Material.015']} />
               <mesh geometry={nodes.Monitor_11.geometry} material={materials['Material.016']} />
               <mesh geometry={nodes.Monitor_12.geometry} material={materials['Material.017']} />
-              <mesh geometry={nodes.Monitor_13.geometry} onClick={index === 1 ? goToUrl : null}>
+              <mesh geometry={nodes.Monitor_13.geometry} onClick={index === 1 ? goToUrl : handleVideoClick}>
                 {index === 3 && videoTexture && (
                   <meshBasicMaterial attach="material" map={videoTexture} />
                 )}

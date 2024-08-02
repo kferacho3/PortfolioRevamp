@@ -138,7 +138,7 @@ bottom: 20%;
     }
 `;
 
-export const FeaturedApplication = styled(motion.div)`
+export const FeaturedApplication = styled(motion(LinkR))`
   grid-column: span 3;
   background-image: url(${props => props.bgImage});
   background-position: center;

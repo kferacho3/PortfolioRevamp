@@ -89,8 +89,8 @@ const Sidebar = ({isOpen, toggle}) => {
             <SidebarWrapper>
             <Logo src={logo} variants={imageVariants} initial="hidden" animate="visible" />
             <ApplicationGrid>
-          <FeaturedApplication bgImage={feat}  variants={itemVariants} initial="hidden" animate="visible">
-            <SidebarLink to='/portfolio' onClick={toggle}><TextSpan>Portfolio</TextSpan></SidebarLink>
+          <FeaturedApplication to='/projects'  bgImage={feat}  variants={itemVariants} initial="hidden" animate="visible">
+            <SidebarLink onClick={toggle}><TextSpan>Portfolio</TextSpan></SidebarLink>
           </FeaturedApplication>
           {/* List of applications */}
 
