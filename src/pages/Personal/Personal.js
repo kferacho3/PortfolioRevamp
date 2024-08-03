@@ -6,8 +6,7 @@ import styled, { keyframes } from "styled-components";
 import Disclaimer from '../../components/Disclaimer/Disclaimer';
 import { MeBit } from '../../glbFiles//UFO';
 import { EmptyDome } from '../../glbFiles/EmptyDome';
-import { Butt1, Butt2, Butt3, Butt4 } from "../../glbFiles/Museum";
-import Monitors from '../../glbFiles/RachoMonitors';
+import MuseumMonitor from '../../glbFiles/MonitorMuseum';
 import { Ground } from './Ground';
 import fun0 from './PersonalImg/Fun0.png';
 import fun1 from './PersonalImg/Fun1.png';
@@ -254,27 +253,29 @@ function Personal({ isOpen, toggle, is3D, setIs3D }) {
               <Earth />
               <mesh rotation={[0, Math.PI,0]} ref={earthRef} position={[0, 7, 0]}>
                 <EmptyDome position={[0,7,0]} scale={[2, 2, 2]}  />
-                <Butt1 onClick={() => setButtonPopup(!buttonPopup)} />
+            {/* {    <Butt1 onClick={() => setButtonPopup(!buttonPopup)} />} */}
                 <group>
-                  {Array.from({ length: monitorsCount }).map((_, i) => {
-                    const angle = (i / monitorsCount) * Math.PI * 2;
-                    return (
-                      <Monitors
-                        key={i}
-                        position={[
-                          radius * Math.cos(angle),
-                          7,
-                          radius * Math.sin(angle)
-                        ]}
-                        scale={500}
-                        rotation={[0, angle + Math.PI / 2, 0]}
-                      />
-                    );
-                  })}
+                {Array.from({ length: monitorsCount }).map((_, i) => {
+                  const angle = (i / monitorsCount) * Math.PI * 2; // Calculating the angle for positioning around the circle
+                  return (
+                    <MuseumMonitor
+                      key={i}
+                      position={[
+                        radius * Math.cos(angle), // X position
+                        -10, // Y position (assuming you want them all at this height)
+                        radius * Math.sin(angle) // Z position
+                      ]}
+                      scale={3} // Scale of each monitor
+                      rotation={[0, 2*angle, 0]} // Adjust rotation to make the monitor face the center
+                    />
+                  );
+                })}
+
+
                 </group>
-                <Butt2 />
+  {/* {              <Butt2 />
                 <Butt3 />
-                <Butt4 />
+                <Butt4 />} */}
               </mesh>
               <group >
        

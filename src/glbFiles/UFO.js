@@ -17,7 +17,7 @@ import { SubMeBit } from "./ServicesGLB/MeBitSub";
 import UfoShip from "./UFOgames";
 import { useControls } from "./useControls";
 
-const SPEED = 5;
+const SPEED = 15;
 const direction = new THREE.Vector3();
 const frontVector = new THREE.Vector3();
 const sideVector = new THREE.Vector3();
